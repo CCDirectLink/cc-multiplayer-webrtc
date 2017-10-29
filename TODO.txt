@@ -1,0 +1,6 @@
+Support multiple users->Currently is using hard coded ids, change to dynamicly generated
+Get slave to call master->Need to switch connection order on both sides
+Mix webaudio with mediastream->Involes modifying the webaudio class to expose audio to window scope for peerjs
+Get full screen canvas support-> Copy code from gamepage js and insert into slave
+Remove data mixing->Modify to Party entity class to use proper class and incorperate multiplayer hooks
+Elemental switching->Add bindings on slave and master

@@ -1,0 +1,31 @@
+REQUIRES source code version of 0.7.0
+
+Add code to node-webkit.html
+<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+var canvas = document.getElementById('canvas');
+var peer = new Peer('master',{key: 'faexusgtdlp4lsor',debug:3});
+peer.on('error',console.log)
+sc.remote={
+        aimStart:false,
+        aiming:false,
+        thrown:false,
+        dash:false,
+        mouse:{x:0,y:0},
+        move:{x:0,y:0}
+};
+var call= peer.call('slave',canvas.captureStream());
+call.on('error',console.log)
+peer.on('connection', function(conn) { 
+    conn.on('open', function() {
+      // Receive messages
+      conn.on('data', function(data) {
+        for (x in data){
+        sc.remote[x]=data[x];
+       }
+      });
+    });
+});
+
+Patch game.feature.party.entities.party-member-entity with file
+
+Launch Slave than master
